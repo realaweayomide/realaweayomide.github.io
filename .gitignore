@@ -1,0 +1,11 @@
+# ── LOCAL ONLY — never publish these ──
+# This repo is public AND served by GitHub Pages, so anything committed here
+# is readable by anyone at realaweayomide.github.io/<filename>.
+TODO.md
+content-plan.md
+post-images/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
