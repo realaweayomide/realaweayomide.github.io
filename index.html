@@ -101,6 +101,9 @@
   .card .row.impact{color:var(--accent);font-weight:500}
   .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
   .chip{font-size:12px;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .card-links{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .card-links a{font-size:13px;font-weight:600;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:7px 13px;transition:.15s}
+  .card-links a:hover{border-color:var(--accent);background:var(--bg-soft);transform:translateY(-1px)}
 
   .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
@@ -228,6 +231,10 @@
           <p class="row"><b>Built:</b> a secured webhook microservice that parses tags with regex, normalizes names (title-case, entity suffixes), and writes clean values back to CRM custom fields via its API.</p>
           <p class="row impact">↳ Automated data entry that was previously manual — or impossible natively.</p>
           <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST API</span><span class="chip">Webhooks</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/smart-tag-parser/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a href="https://github.com/realaweayomide/smart-tag-parser" target="_blank" rel="noopener">Code ↗</a>
+          </div>
         </div>
 
         <div class="card">
@@ -286,7 +293,10 @@
         </div>
 
       </div>
-      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details are anonymized to respect confidentiality. Open-source demo builds are on the way — follow along at <a href="https://github.com/realaweayomide" style="color:var(--accent)">github.com/realaweayomide</a>.</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details are anonymized to respect confidentiality. Open-source builds you can run:
+        <a href="https://realaweayomide.github.io/smart-tag-parser/" style="color:var(--accent)" target="_blank" rel="noopener">Smart Tag Parser</a> (live demo · <a href="https://github.com/realaweayomide/smart-tag-parser" style="color:var(--accent)" target="_blank" rel="noopener">code</a>),
+        <a href="https://github.com/realaweayomide/text-to-json" style="color:var(--accent)" target="_blank" rel="noopener">Text → JSON</a> (code) — more at
+        <a href="https://github.com/realaweayomide" style="color:var(--accent)" target="_blank" rel="noopener">github.com/realaweayomide</a>.</p>
     </div>
   </section>
 
