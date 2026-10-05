@@ -10,24 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0d12;
-    --bg-soft:#11141b;
-    --card:#141824;
-    --line:#232838;
-    --text:#e8ebf2;
-    --muted:#9aa3b5;
-    --accent:#6ee7b7;
-    --accent-2:#60a5fa;
-    --glow:rgba(110,231,183,.14);
-    --max:1060px;
+    --bg:#0b0d12;--bg-soft:#11141b;--card:#141824;--line:#232838;
+    --text:#e8ebf2;--muted:#9aa3b5;--accent:#6ee7b7;--accent-2:#60a5fa;
+    --glow:rgba(110,231,183,.14);--max:1060px;
     --font:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     --display:'Space Grotesk',var(--font);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0;background:var(--bg);color:var(--text);
-    font-family:var(--font);line-height:1.6;
+    margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;
     -webkit-font-smoothing:antialiased;
     background-image:radial-gradient(900px 500px at 80% -10%,var(--glow),transparent 60%),radial-gradient(700px 400px at 0% 10%,rgba(96,165,250,.10),transparent 55%);
     background-attachment:fixed;
@@ -35,7 +27,6 @@
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-  /* NAV */
   header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,13,18,.72);border-bottom:1px solid var(--line)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
   .brand{font-family:var(--display);font-weight:700;letter-spacing:.3px}
@@ -46,9 +37,11 @@
   @media(max-width:640px){.nav-links{display:none}}
 
   /* HERO */
-  .hero{padding:88px 0 64px}
+  .hero{padding:80px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  @media(max-width:720px){.hero-grid{grid-template-columns:1fr;gap:28px}}
   .eyebrow{font-family:var(--display);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
-  .hero h1{font-family:var(--display);font-size:clamp(34px,6vw,58px);line-height:1.05;margin:0 0 20px;font-weight:700}
+  .hero h1{font-family:var(--display);font-size:clamp(32px,5.4vw,54px);line-height:1.05;margin:0 0 20px;font-weight:700}
   .hero h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:620px;margin:0 0 32px}
   .cta{display:flex;gap:14px;flex-wrap:wrap}
@@ -57,14 +50,17 @@
   .btn.primary{background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#07120d;border-color:transparent}
   .btn.ghost{background:var(--card);color:var(--text)}
   .btn.ghost:hover{border-color:var(--accent)}
+  /* avatar */
+  .avatar-ring{width:190px;height:190px;border-radius:50%;padding:4px;background:linear-gradient(140deg,var(--accent),var(--accent-2));box-shadow:0 0 50px rgba(110,231,183,.18);flex-shrink:0}
+  .avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:var(--card)}
+  .avatar-fallback{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);font-family:var(--display);font-weight:700;font-size:58px;color:var(--accent)}
+  @media(max-width:720px){.avatar-ring{width:130px;height:130px}.avatar-fallback{font-size:40px}}
 
-  /* SECTION */
-  section{padding:64px 0;border-top:1px solid var(--line)}
+  section{padding:60px 0;border-top:1px solid var(--line)}
   .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:38px}
   .sec-num{font-family:var(--display);color:var(--accent);font-size:14px;font-weight:600}
   .sec-head h2{font-family:var(--display);font-size:clamp(24px,4vw,34px);margin:0;font-weight:700}
 
-  /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
   @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:28px}}
   .about p{color:var(--muted);margin:0 0 16px;font-size:16.5px}
@@ -74,21 +70,30 @@
   .fact .k{font-family:var(--display);font-size:26px;font-weight:700;color:var(--accent)}
   .fact .v{font-size:14px;color:var(--muted)}
 
+  /* HOW I WORK */
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .step{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px;position:relative;margin:0 6px 12px}
+  .step .n{font-family:var(--display);font-size:13px;color:var(--accent-2);font-weight:600;margin-bottom:8px}
+  .step h4{font-family:var(--display);font-size:17px;margin:0 0 6px}
+  .step p{font-size:13.5px;color:var(--muted);margin:0}
+
   /* WORK */
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:760px){.cards{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .18s,border-color .2s}
   .card:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .card .tag{display:inline-block;font-family:var(--display);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-2);margin-bottom:12px}
-  .card h3{font-family:var(--display);font-size:20px;margin:0 0 10px;font-weight:600}
-  .card .blurb{color:var(--muted);font-size:15px;margin:0 0 16px}
+  .card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .ico{width:42px;height:42px;border-radius:11px;background:var(--bg-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card .tag{font-family:var(--display);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-2)}
+  .card h3{font-family:var(--display);font-size:19px;margin:2px 0 0;font-weight:600}
+  .card .blurb{color:var(--muted);font-size:14.5px;margin:0 0 14px}
   .card .row{font-size:14px;margin:0 0 10px}
   .card .row b{color:var(--text);font-weight:600}
   .card .row.impact{color:var(--accent);font-weight:500}
-  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
   .chip{font-size:12px;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
 
-  /* SKILLS */
   .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
   .skill-col h4{font-family:var(--display);font-size:15px;color:var(--text);margin:0 0 12px;display:flex;align-items:center;gap:8px}
@@ -96,12 +101,11 @@
   .skill-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
   .skill-col li{font-size:14.5px;color:var(--muted)}
 
-  /* CONTACT */
   .contact{text-align:center;padding:80px 0}
   .contact h2{font-family:var(--display);font-size:clamp(26px,4.5vw,40px);margin:0 0 14px}
   .contact p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:17px}
-
-  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer{border-top:1px solid var(--line);padding:30px 0}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13.5px}
   footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
 </style>
 </head>
@@ -112,6 +116,7 @@
     <div class="brand">Ayomide<span>.</span>Awe</div>
     <nav class="nav-links">
       <a href="#about">About</a>
+      <a href="#how">How I work</a>
       <a href="#work">Work</a>
       <a href="#skills">Stack</a>
       <a href="#contact">Contact</a>
@@ -123,12 +128,20 @@
   <!-- HERO -->
   <section class="hero" style="border-top:none">
     <div class="wrap">
-      <div class="eyebrow">AI Automation Engineer</div>
-      <h1>I build <span class="grad">AI agents &amp; automation systems</span> that help teams move faster.</h1>
-      <p class="lead">Lawyer by training, builder by obsession. I turn messy, manual sales &amp; operations work into clean, reliable automated systems — AI assistants, CRM integrations, and workflow bots that ship.</p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Let's talk →</a>
-        <a class="btn ghost" href="#work">See my work</a>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">AI Automation Engineer</div>
+          <h1>I build <span class="grad">AI agents &amp; automation systems</span> that help teams move faster.</h1>
+          <p class="lead">Lawyer by training, builder by obsession. I turn messy, manual sales &amp; operations work into clean, reliable automated systems — AI assistants, CRM integrations, and workflow bots that ship.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Let's talk →</a>
+            <a class="btn ghost" href="#work">See my work</a>
+          </div>
+        </div>
+        <div class="avatar-ring">
+          <img class="avatar" src="me.jpg" alt="Ayomide Awe"
+               onerror="this.outerHTML='&lt;div class=\'avatar-fallback\'&gt;AA&lt;/div&gt;'">
+        </div>
       </div>
     </div>
   </section>
@@ -153,90 +166,127 @@
     </div>
   </section>
 
+  <!-- HOW I WORK -->
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">02</span><h2>How I work</h2></div>
+      <div class="flow">
+        <div class="step"><div class="n">01</div><h4>Find the bottleneck</h4><p>The repetitive, error-prone task eating the team's time.</p></div>
+        <div class="step"><div class="n">02</div><h4>Design the flow</h4><p>Map inputs, logic and edge cases before writing a line.</p></div>
+        <div class="step"><div class="n">03</div><h4>Build &amp; integrate</h4><p>Wire it into the real tools — CRM, chat, calendar, LLMs.</p></div>
+        <div class="step"><div class="n">04</div><h4>Deploy</h4><p>Ship it live, monitored, and reliable — not a demo.</p></div>
+        <div class="step"><div class="n">05</div><h4>Maintain</h4><p>Watch it run, handle the edge cases reality throws up.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- WORK -->
   <section id="work">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">02</span><h2>Selected work</h2></div>
+      <div class="sec-head"><span class="sec-num">03</span><h2>Selected work</h2></div>
       <div class="cards">
 
         <div class="card">
-          <span class="tag">AI Agent · Ops</span>
-          <h3>AI Operations Assistant</h3>
-          <p class="blurb">A chat-native AI assistant for a sales organization that was drowning in "what's the status of X?" lookups spread across CRM, call data, and the web.</p>
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg></div>
+            <div><div class="tag">AI Agent · Ops</div><h3>AI Operations Assistant</h3></div>
+          </div>
+          <p class="blurb">A chat-native AI assistant for a sales org drowning in "what's the status of X?" lookups across CRM, call data, and the web.</p>
           <p class="row"><b>Built:</b> an agentic assistant with an 18-tool loop (CRM reads, call records, live web research), persistent long-term memory, and per-channel context so it answers in the flow of work.</p>
           <p class="row impact">↳ Instant in-channel answers; manual lookups largely eliminated.</p>
-          <div class="stack"><span class="chip">Node.js</span><span class="chip">LLM tool-loop</span><span class="chip">Chat gateway</span><span class="chip">Postgres · pgvector</span><span class="chip">pm2</span></div>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">LLM tool-loop</span><span class="chip">Chat gateway</span><span class="chip">pgvector</span><span class="chip">pm2</span></div>
         </div>
 
         <div class="card">
-          <span class="tag">Integration · CRM</span>
-          <h3>CRM Tag → Field Enrichment</h3>
-          <p class="blurb">The CRM couldn't natively extract structured data (partner name, deal value) that lived buried inside free-text contact tags.</p>
-          <p class="row"><b>Built:</b> a secured webhook microservice that parses tags with regex, normalizes names (title-case, entity suffixes like LLC/INC), and writes clean values back to CRM custom fields via its API.</p>
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></div>
+            <div><div class="tag">Integration · CRM</div><h3>CRM Tag → Field Enrichment</h3></div>
+          </div>
+          <p class="blurb">The CRM couldn't natively extract structured data (partner name, deal value) buried inside free-text contact tags.</p>
+          <p class="row"><b>Built:</b> a secured webhook microservice that parses tags with regex, normalizes names (title-case, entity suffixes), and writes clean values back to CRM custom fields via its API.</p>
           <p class="row impact">↳ Automated data entry that was previously manual — or impossible natively.</p>
-          <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST API</span><span class="chip">Webhooks</span><span class="chip">Regex parsing</span></div>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST API</span><span class="chip">Webhooks</span></div>
         </div>
 
         <div class="card">
-          <span class="tag">Automation · SLA</span>
-          <h3>Pipeline SLA Escalation Bot</h3>
-          <p class="blurb">Deals were stalling in pipeline stages with no accountability and no one getting flagged in time.</p>
-          <p class="row"><b>Built:</b> a cron-driven monitor that tracks stage age against an SLA ladder (1h/2h notify → 3h/6h escalate), posts alerts to the team chat, and uses atomic day-locks so nothing double-fires. Timezone-aware.</p>
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><div class="tag">Automation · SLA</div><h3>Pipeline SLA Escalation Bot</h3></div>
+          </div>
+          <p class="blurb">Deals were stalling in pipeline stages with no accountability and no one flagged in time.</p>
+          <p class="row"><b>Built:</b> a cron-driven monitor tracking stage age against an SLA ladder (1h/2h notify → 3h/6h escalate), posting alerts to team chat, with atomic day-locks so nothing double-fires. Timezone-aware.</p>
           <p class="row impact">↳ Reliable, de-duplicated escalations and clear ownership.</p>
           <div class="stack"><span class="chip">Node.js</span><span class="chip">node-cron</span><span class="chip">Chat webhooks</span><span class="chip">Atomic locking</span></div>
         </div>
 
         <div class="card">
-          <span class="tag">LLM · Analytics</span>
-          <h3>Call Scoring &amp; Analytics Dashboard</h3>
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></div>
+            <div><div class="tag">LLM · Analytics</div><h3>Call Scoring &amp; Analytics Dashboard</h3></div>
+          </div>
           <p class="blurb">No objective, consistent way to score sales calls at scale — quality was a matter of opinion.</p>
           <p class="row"><b>Built:</b> an LLM grader that scores call transcripts against a defined rubric, persists the results, and surfaces them in a token-gated web dashboard with per-rep rollups.</p>
           <p class="row impact">↳ Consistent, queryable call-quality metrics for every rep.</p>
-          <div class="stack"><span class="chip">Node.js</span><span class="chip">LLM grading</span><span class="chip">Supabase</span><span class="chip">HTML · JS dashboard</span></div>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">LLM grading</span><span class="chip">Supabase</span><span class="chip">HTML · JS</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg></div>
+            <div><div class="tag">Automation · Calendar</div><h3>Calendar Guest Automation</h3></div>
+          </div>
+          <p class="blurb">A stakeholder needed to be on every internal meeting, but kept getting left off invites manually.</p>
+          <p class="row"><b>Built:</b> a service that polls a shared Google Calendar and automatically adds the right guest to every internal event — no human in the loop.</p>
+          <p class="row impact">↳ 100% invite coverage, zero manual adds.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Google Calendar API</span><span class="chip">Service account</span><span class="chip">Cron</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 11l2 2 4-4"/></svg></div>
+            <div><div class="tag">Automation · Lifecycle</div><h3>Post-Close Onboarding Flow</h3></div>
+          </div>
+          <p class="blurb">New customers hit a silent gap between closing and onboarding — handoffs slipped through the cracks.</p>
+          <p class="row"><b>Built:</b> a webhook-triggered flow that fires welcome messages and hands the account off to the success team the moment a deal is marked closed.</p>
+          <p class="row impact">↳ Instant, consistent onboarding — no dropped handoffs.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">SMS API</span><span class="chip">CRM webhooks</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg></div>
+            <div><div class="tag">RAG · Knowledge</div><h3>Institutional Memory (RAG)</h3></div>
+          </div>
+          <p class="blurb">The AI assistant needed to "remember" months of calls and decisions, not just the current chat.</p>
+          <p class="row"><b>Built:</b> a pipeline that ingests call transcripts, chunks and embeds them into a vector store, and serves relevant context back to the assistant at query time.</p>
+          <p class="row impact">↳ Answers grounded in real institutional history, not guesses.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Embeddings</span><span class="chip">pgvector</span><span class="chip">RAG</span></div>
         </div>
 
       </div>
-      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details anonymized. Code samples &amp; demo repos available on request — <a href="https://github.com/realaweayomide" style="color:var(--accent)">github.com/realaweayomide</a>.</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details anonymized. Open-source demo builds &amp; code samples on request — <a href="https://github.com/realaweayomide" style="color:var(--accent)">github.com/realaweayomide</a>.</p>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">03</span><h2>Stack</h2></div>
+      <div class="sec-head"><span class="sec-num">04</span><h2>Stack</h2></div>
       <div class="skill-grid">
         <div class="skill-col">
           <h4>AI &amp; LLM</h4>
-          <ul>
-            <li>Agentic tool-loops</li>
-            <li>Claude · Grok · OpenAI-compatible APIs</li>
-            <li>RAG &amp; vector search (pgvector)</li>
-            <li>Prompt engineering</li>
-            <li>LLM grading &amp; extraction</li>
-          </ul>
+          <ul><li>Agentic tool-loops</li><li>Claude · Grok · OpenAI-compatible APIs</li><li>RAG &amp; vector search (pgvector)</li><li>Prompt engineering</li><li>LLM grading &amp; extraction</li></ul>
         </div>
         <div class="skill-col">
           <h4>Automation &amp; Integration</h4>
-          <ul>
-            <li>Webhooks &amp; REST APIs</li>
-            <li>CRM automation (GoHighLevel)</li>
-            <li>Chat bots (Discord / Slack)</li>
-            <li>Cron &amp; scheduled jobs</li>
-            <li>Workflow design</li>
-          </ul>
+          <ul><li>Webhooks &amp; REST APIs</li><li>CRM automation (GoHighLevel)</li><li>No-code: n8n · Make.com</li><li>Chat bots (Discord / Slack)</li><li>Cron &amp; scheduled jobs</li></ul>
         </div>
         <div class="skill-col">
           <h4>Build &amp; Ship</h4>
-          <ul>
-            <li>Node.js (ESM &amp; CJS), JavaScript</li>
-            <li>Express microservices</li>
-            <li>Supabase / Postgres</li>
-            <li>VPS / Linux, pm2, tunnels</li>
-            <li>Git &amp; deployment</li>
-          </ul>
+          <ul><li>Node.js (ESM &amp; CJS), JavaScript</li><li>Express microservices</li><li>Supabase / Postgres</li><li>VPS / Linux, pm2, tunnels</li><li>Git &amp; deployment</li></ul>
         </div>
       </div>
-      <p style="color:var(--muted);font-size:14.5px;margin-top:26px">Plus a 7-year foundation in <strong style="color:var(--text)">content strategy, SEO &amp; copywriting</strong> and formal <strong style="color:var(--text)">legal training</strong> — useful for turning complex requirements into systems that actually read and behave the way people expect.</p>
+      <p style="color:var(--muted);font-size:14.5px;margin-top:26px">Plus a 7-year foundation in <strong style="color:var(--text)">content strategy, SEO &amp; copywriting</strong> and formal <strong style="color:var(--text)">legal training</strong> — useful for turning complex requirements into systems that behave the way people expect.</p>
     </div>
   </section>
 
@@ -255,7 +305,7 @@
 </main>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%">
+  <div class="wrap foot-inner">
     <span>© <span id="yr"></span> Ayomide Awe</span>
     <span>Built from scratch · <a href="mailto:realaweayomide@gmail.com">realaweayomide@gmail.com</a></span>
   </div>
