@@ -129,6 +129,7 @@
       <a href="#about">About</a>
       <a href="#how">How I work</a>
       <a href="#work">Work</a>
+      <a href="#builds">Builds</a>
       <a href="#skills">Stack</a>
       <a href="#contact">Contact</a>
       <a href="https://mystiquewrites.lovable.app/" target="_blank" rel="noopener">Writing ↗</a>
@@ -293,17 +294,74 @@
         </div>
 
       </div>
-      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details are anonymized to respect confidentiality. Open-source builds you can run:
-        <a href="https://realaweayomide.github.io/smart-tag-parser/" style="color:var(--accent)" target="_blank" rel="noopener">Smart Tag Parser</a> (live demo · <a href="https://github.com/realaweayomide/smart-tag-parser" style="color:var(--accent)" target="_blank" rel="noopener">code</a>),
-        <a href="https://github.com/realaweayomide/text-to-json" style="color:var(--accent)" target="_blank" rel="noopener">Text → JSON</a> (code) — more at
-        <a href="https://github.com/realaweayomide" style="color:var(--accent)" target="_blank" rel="noopener">github.com/realaweayomide</a>.</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:22px">Client details are anonymized to respect confidentiality. For code you can actually read and run, see my open-source builds below.</p>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE BUILDS -->
+  <section id="builds">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Open-source builds</h2></div>
+      <p style="color:var(--muted);font-size:16px;margin:-20px 0 34px;max-width:640px">Tools I've built and published. Free to read, clone and run — most work with no API key at all.</p>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></div>
+            <div><div class="tag">Parsing · Zero deps</div><h3>Smart Tag Parser</h3></div>
+          </div>
+          <p class="blurb">Turns messy CRM tags and free-text into clean structured fields and copyable JSON. Runs entirely in the browser — no server, no key, works offline.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Regex</span><span class="chip">Client-side</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/smart-tag-parser/" target="_blank" rel="noopener">Live demo ↗</a>
+            <a href="https://github.com/realaweayomide/smart-tag-parser" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></svg></div>
+            <div><div class="tag">LLM · Extraction</div><h3>Text → JSON</h3></div>
+          </div>
+          <p class="blurb">Paste a messy email or note, get back clean structured JSON — names, amounts, dates, action items. The API key stays server-side, never in the browser.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">LLM</span><span class="chip">Provider-agnostic</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/text-to-json" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><div class="tag">Automation · Scheduled</div><h3>Daily Digest Bot</h3></div>
+          </div>
+          <p class="blurb">Pulls your sources on a schedule, has an LLM summarize them, and posts the digest to Discord or Slack. Degrades gracefully — runs with no API key at all.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">node-cron</span><span class="chip">RSS</span><span class="chip">Webhooks</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/daily-digest-bot" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg></div>
+            <div><div class="tag">Research · CLI</div><h3>Outline Researcher</h3></div>
+          </div>
+          <p class="blurb">Give it a topic and competing URLs — it reads how each page is structured and returns benchmarks, the themes everyone covers, and a recommended outline.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Cheerio</span><span class="chip">Text analysis</span><span class="chip">LLM</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/outline-researcher" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-num">04</span><h2>Stack</h2></div>
+      <div class="sec-head"><span class="sec-num">05</span><h2>Stack</h2></div>
       <div class="skill-grid">
         <div class="skill-col">
           <h4>AI &amp; LLM</h4>
