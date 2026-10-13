@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Builds — Ayomide Awe</title>
+<meta name="description" content="Fifteen open-source tools for AI automation — five with live demos you can click. Built by Ayomide Awe.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://realaweayomide.github.io/builds.html">
+<meta property="og:title" content="Builds — 15 open-source AI automation tools">
+<meta property="og:description" content="I build AI agents and automation systems that help sales and operations teams move faster.">
+<meta property="og:image" content="https://realaweayomide.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d12;--bg-soft:#11141b;--card:#141824;--line:#232838;
+    --text:#e8ebf2;--muted:#9aa3b5;--accent:#6ee7b7;--accent-2:#60a5fa;
+    --glow:rgba(110,231,183,.14);--max:1060px;
+    --font:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --display:'Space Grotesk',var(--font);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(900px 500px at 80% -10%,var(--glow),transparent 60%),radial-gradient(700px 400px at 0% 10%,rgba(96,165,250,.10),transparent 55%);
+    background-attachment:fixed;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,13,18,.72);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--display);font-weight:700;letter-spacing:.3px}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;font-size:14px}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:640px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{padding:80px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  @media(max-width:720px){.hero-grid{grid-template-columns:1fr;gap:28px}}
+  .eyebrow{font-family:var(--display);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .hero h1{font-family:var(--display);font-size:clamp(32px,5.4vw,54px);line-height:1.05;margin:0 0 20px;font-weight:700}
+  .hero h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:620px;margin:0 0 32px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid var(--line);transition:transform .15s,border-color .2s,background .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#07120d;border-color:transparent}
+  .btn.ghost{background:var(--card);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--accent)}
+  /* avatar */
+  .avatar-ring{width:190px;height:190px;border-radius:50%;padding:4px;background:linear-gradient(140deg,var(--accent),var(--accent-2));box-shadow:0 0 50px rgba(110,231,183,.18);flex-shrink:0}
+  .avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:var(--card)}
+  .avatar-fallback{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);font-family:var(--display);font-weight:700;font-size:58px;color:var(--accent)}
+  @media(max-width:720px){.avatar-ring{width:130px;height:130px}.avatar-fallback{font-size:40px}}
+
+  /* BRANDS */
+  .brands{padding:32px 0;border-top:1px solid var(--line)}
+  .brands .lab{font-family:var(--display);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 18px}
+  .brand-row{display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
+  .brand-row span{font-family:var(--display);font-weight:600;font-size:20px;color:var(--muted);opacity:.85;transition:color .2s,opacity .2s}
+  .brand-row span:hover{color:var(--text);opacity:1}
+  .brand-row .more{font-family:var(--font);font-weight:400;font-size:15px}
+
+  section{padding:60px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:38px}
+  .sec-num{font-family:var(--display);color:var(--accent);font-size:14px;font-weight:600}
+  .sec-head h2{font-family:var(--display);font-size:clamp(24px,4vw,34px);margin:0;font-weight:700}
+
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:28px}}
+  .about p{color:var(--muted);margin:0 0 16px;font-size:16.5px}
+  .about strong{color:var(--text);font-weight:600}
+  .facts{display:flex;flex-direction:column;gap:14px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .fact .k{font-family:var(--display);font-size:26px;font-weight:700;color:var(--accent)}
+  .fact .v{font-size:14px;color:var(--muted)}
+
+  /* HOW I WORK */
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .step{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px;position:relative;margin:0 6px 12px}
+  .step .n{font-family:var(--display);font-size:13px;color:var(--accent-2);font-weight:600;margin-bottom:8px}
+  .step h4{font-family:var(--display);font-size:17px;margin:0 0 6px}
+  .step p{font-size:13.5px;color:var(--muted);margin:0}
+
+  /* WORK */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .18s,border-color .2s}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .ico{width:42px;height:42px;border-radius:11px;background:var(--bg-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card .tag{font-family:var(--display);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-2)}
+  .card h3{font-family:var(--display);font-size:19px;margin:2px 0 0;font-weight:600}
+  .card .blurb{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+  .card .row{font-size:14px;margin:0 0 10px}
+  .card .row b{color:var(--text);font-weight:600}
+  .card .row.impact{color:var(--accent);font-weight:500}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .chip{font-size:12px;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .card-links{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .card-links a{font-size:13px;font-weight:600;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:7px 13px;transition:.15s}
+  .card-links a:hover{border-color:var(--accent);background:var(--bg-soft);transform:translateY(-1px)}
+
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
+  .skill-col h4{font-family:var(--display);font-size:15px;color:var(--text);margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .skill-col h4::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  .skill-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .skill-col li{font-size:14.5px;color:var(--muted)}
+
+  .contact{text-align:center;padding:80px 0}
+  .contact h2{font-family:var(--display);font-size:clamp(26px,4.5vw,40px);margin:0 0 14px}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:17px}
+  footer{border-top:1px solid var(--line);padding:30px 0}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13.5px}
+  footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><a href="index.html" style="color:inherit">Ayomide<span>.</span>Awe</a></div>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Client work</a>
+      <a href="builds.html" style="color:var(--text)">Builds</a>
+      <a href="index.html#skills">Stack</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section style="border-top:none;padding:58px 0 10px">
+    <div class="wrap">
+      <a href="index.html" style="color:var(--muted);font-size:14px">&larr; Back to portfolio</a>
+      <h1 style="font-family:var(--display);font-size:clamp(28px,5vw,42px);margin:16px 0 12px;font-weight:700">
+        Open-source <span style="color:var(--accent)">builds</span>
+      </h1>
+      <p style="color:var(--muted);font-size:17px;max-width:680px;margin:0 0 10px">
+        Fifteen tools I have built and published. Free to read, clone and run.
+        Five are live demos you can click right now, and most work with no API key at all.
+      </p>
+      <p style="color:var(--muted);font-size:14.5px;max-width:680px;margin:0 0 6px">
+        Each one has a README explaining the engineering decision behind it &mdash; why it degrades
+        gracefully, why it refuses to answer, or why it deliberately uses no AI at all.
+      </p>
+    </div>
+  </section>
+
+  <section id="builds" style="border-top:none;padding-top:26px">
+    <div class="wrap">
+      <div class="cards">
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></div>
+            <div><div class="tag">Parsing &middot; No deps</div><h3>Smart Tag Parser</h3></div>
+          </div>
+          <p class="blurb">Turns messy CRM tags and free-text into clean structured fields and copyable JSON. Runs entirely in the browser &mdash; no server, no key, works offline.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Regex</span><span class="chip">Client-side</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/smart-tag-parser/" target="_blank" rel="noopener">Live demo &uarr;</a>
+            <a href="https://github.com/realaweayomide/smart-tag-parser" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></div>
+            <div><div class="tag">Codegen &middot; Graph</div><h3>n8n &rarr; Code</h3></div>
+          </div>
+          <p class="blurb">Paste an n8n workflow export, get readable Node.js. Tested against 5,000 real workflows: 70% of steps translated, 99% of generated files are valid JavaScript.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Code generation</span><span class="chip">CLI</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/n8n-to-code/" target="_blank" rel="noopener">Live demo &uarr;</a>
+            <a href="https://github.com/realaweayomide/n8n-to-code" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <div><div class="tag">Security &middot; Client-side</div><h3>PII Redactor</h3></div>
+          </div>
+          <p class="blurb">Finds emails, payment cards, IBANs, API keys and national IDs, then redacts them. Cards validated with Luhn, IBANs with mod-97, so it doesn&rsquo;t cry wolf. Nothing is ever uploaded.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Checksums</span><span class="chip">Client-side</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/pii-redactor/" target="_blank" rel="noopener">Live demo &uarr;</a>
+            <a href="https://github.com/realaweayomide/pii-redactor" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+            <div><div class="tag">Six tools &middot; One site</div><h3>Ops Toolkit</h3></div>
+          </div>
+          <p class="blurb">Webhook inspector, cron translator, CSV cleaner, contact normalizer, duplicate finder and template checker &mdash; the unglamorous parts of automation work.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Dice coefficient</span><span class="chip">No deps</span></div>
+          <div class="card-links">
+            <a href="https://realaweayomide.github.io/ops-toolkit/" target="_blank" rel="noopener">Live demo &uarr;</a>
+            <a href="https://github.com/realaweayomide/ops-toolkit" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></svg></div>
+            <div><div class="tag">LLM &middot; Extraction</div><h3>Text &rarr; JSON</h3></div>
+          </div>
+          <p class="blurb">Paste a messy email or note, get back clean structured JSON. The API key stays server-side, never in the browser, and the endpoint is rate limited.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Provider-agnostic</span></div>
+          <div class="card-links">
+            <a href="https://text-to-json.onrender.com" target="_blank" rel="noopener">Live demo &uarr;</a>
+            <a href="https://github.com/realaweayomide/text-to-json" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg></div>
+            <div><div class="tag">RAG &middot; Citations</div><h3>Doc Q&amp;A</h3></div>
+          </div>
+          <p class="blurb">Ask questions about your documents and get answers that cite the exact passage &mdash; and an honest refusal when the answer isn&rsquo;t in there.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Embeddings</span><span class="chip">Retrieval thresholds</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/doc-qa" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+            <div><div class="tag">AI Agent &middot; Sales</div><h3>Lead Qualifier</h3></div>
+          </div>
+          <p class="blurb">An agent researches an inbound lead&rsquo;s company, scores the fit with evidence, and routes it. Scores twice &mdash; agent and rules &mdash; and flags when they disagree.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Tool-loop</span><span class="chip">Guardrails</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/lead-qualifier" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M8 7l-4 7h8z"/><path d="M16 7l-4 7h8z"/></svg></div>
+            <div><div class="tag">Legal &middot; AI</div><h3>Clause Explainer</h3></div>
+          </div>
+          <p class="blurb">Explains contract clauses in plain English: obligations by party, deadlines, jargon defined. Structurally unable to give legal advice.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">60-term glossary</span><span class="chip">Responsible AI</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/contract-clause-explainer" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+            <div><div class="tag">Embeddings &middot; Search</div><h3>Semantic Sheet Search</h3></div>
+          </div>
+          <p class="blurb">Search a spreadsheet by meaning rather than keywords &mdash; with both result sets side by side, so you can see exactly what semantic search buys you.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Embeddings</span><span class="chip">BM25</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/semantic-sheet-search" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg></div>
+            <div><div class="tag">Conversation &middot; Commerce</div><h3>WhatsApp Order Bot</h3></div>
+          </div>
+          <p class="blurb">Takes food orders over WhatsApp. Survives typos, asks when an item is ambiguous rather than guessing, and deliberately uses no LLM.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">State machine</span><span class="chip">Meta Cloud API</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/whatsapp-order-bot" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v5"/></svg></div>
+            <div><div class="tag">Analytics &middot; Sales</div><h3>Call Summarizer</h3></div>
+          </div>
+          <p class="blurb">Talk-time ratio, longest monologue, objections and unanswered questions from any transcript. The scorecard needs no AI at all.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Transcript parsing</span><span class="chip">LLM summary</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/call-summarizer" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div><div class="tag">Monitoring &middot; Intel</div><h3>Change Monitor</h3></div>
+          </div>
+          <p class="blurb">Watches pages for meaningful change and stays quiet about noise &mdash; LCS diff, noise normalisation and significance thresholds.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">LCS diff</span><span class="chip">Cheerio</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/change-monitor" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><div class="tag">Pipeline &middot; SLA</div><h3>Stale Deal Detector</h3></div>
+          </div>
+          <p class="blurb">Finds deals that have gone quiet, counting business days against per-stage thresholds &mdash; and alerting once rather than nagging daily.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Business-day maths</span><span class="chip">Stateful alerts</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/stale-deal-detector" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 2v20l3-2 2 2 2-2 2 2 2-2 3 2V2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+            <div><div class="tag">Receivables &middot; Dunning</div><h3>Invoice Watcher</h3></div>
+          </div>
+          <p class="blurb">Ages receivables and chases overdue invoices with one message per customer, escalating the tone once per stage, then handing off to a human.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Dunning ladder</span><span class="chip">Grace periods</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/invoice-watcher" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l8 5V5L7 10H4a1 1 0 0 0-1 1z"/><path d="M19 9a4 4 0 0 1 0 6"/></svg></div>
+            <div><div class="tag">Text analysis &middot; LLM</div><h3>Content Repurposer</h3></div>
+          </div>
+          <p class="blurb">Turns a README into posts built around the specifics rather than a summary &mdash; and flags any number in the draft that isn&rsquo;t in the source.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Extraction</span><span class="chip">Fabrication guard</span></div>
+          <div class="card-links">
+            <a href="https://github.com/realaweayomide/content-repurposer" target="_blank" rel="noopener">Code &uarr;</a>
+          </div>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-top:26px">
+        More at <a href="https://github.com/realaweayomide" style="color:var(--accent)" target="_blank" rel="noopener">github.com/realaweayomide</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's build something.</h2>
+      <p>Have a manual process that should be running itself? I'd like to hear about it.</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn primary" href="mailto:realaweayomide@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://wa.me/2348162487521" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/realaweayomide" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/realaweayomide" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>&copy; <span id="yr"></span> Ayomide Awe</span>
+    <span><a href="index.html">Back to portfolio</a></span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
